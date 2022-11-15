@@ -5,26 +5,29 @@
 </script>
 <header
 class="
-relative -z-10 lg:-mb-[12vmax] lg:h-[24vmax] h-[20vh]
+relative -z-10 -mb-[14vmax] h-[24vmax]
 ">
 <ImageContainer cover={true} meta_data={data.banner}/>
+<div class="absolute inset-0
+bg-gradient-to-b from-deepgreen/0 to-deepgreen"> 
+</div>
 </header>
 
 <main 
 class="
 px-8 py-12
-bg-deepgreen max-w-screen-lg mx-auto">
+max-w-screen-xl mx-auto">
     <div class="mb-6">
-        <h1 class="text-3xl font-semibold mb-2">{data.title}</h1>
-        <h2 class="uppercase opacity-60">{data.type}</h2>
+        <h1 class="text-6xl font-semibold mb-2">{data.title}</h1>
+        <h2 class="text-2xl uppercase opacity-60">{data.type}</h2>
     </div>
     <div class="flex md:flex-row flex-col gap-12 sm:items-start mb-16">
         <div class="flex-1">
-            <div class="text-lg max-w-prose">
+            <div class="text-xl max-w-prose">
                 {data.overview}
             </div>
         </div>
-        <div class="w-full md:w-2/5 grid grid-cols-[auto,_1fr] gap-y-1">
+        <div class="w-full md:w-2/5 grid grid-cols-[auto,_1fr] gap-y-1 text-sm">
         {#each data.tags as tag }
             <div class="bg-black/80 p-2 flex items-center">
                 {tag.name}
