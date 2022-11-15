@@ -42,7 +42,7 @@ async function set_media_meta(media_path, options = {}) {
   let media_type = watdat(media_extension);
   if (media_type == null) return;
 
-  let meta_file_name = `${path.relative("./static/content/", media_path).replaceAll("/", "_")}.json`;
+  let meta_file_name = `${path.relative("./static/content/", media_path).replaceAll(path.sep, "_")}.json`;
   let meta_location_path = path.resolve("./static/metas", meta_file_name);
 
   // Skip if media is older than already existing meta data
@@ -73,7 +73,7 @@ async function set_media_meta(media_path, options = {}) {
         };
 
         options.breakpoints.forEach(bpoint => {
-          let resized_media_name = `${bpoint.name}-${path.relative(projects_directory, media_path ).replaceAll("/", "_")}`;
+          let resized_media_name = `${bpoint.name}-${path.relative(projects_directory, media_path ).replaceAll(path.sep, "_")}`;
           let relative_path = path.join("./resized_images", resized_media_name);
           let destination_path = path.resolve("./static/resized_images", resized_media_name);
 
