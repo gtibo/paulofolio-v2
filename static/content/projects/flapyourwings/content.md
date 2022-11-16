@@ -1,5 +1,6 @@
 ---
 title: Flap your wings
+date: 2020-12
 type: Video game
 vignette: thumbnail.jpg
 banner: medias/images/header.jpg

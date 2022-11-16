@@ -1,5 +1,6 @@
 ---
 title: Uru Dagal
+date: 2021-6
 type: Video game
 vignette: thumbnail.jpg
 banner: medias/images/header.jpg
