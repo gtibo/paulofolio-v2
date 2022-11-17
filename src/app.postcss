@@ -2,14 +2,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@layer base {
+  @font-face {
+    font-family: 'Red Hat Display';
+    src: url('/fonts/RedHatDisplay-VariableFont_wght.ttf') format('truetype');
+    font-display: swap;
+  }
+}
 
 html {
   font-size: 1.1em; 
 }
 
 body{
-  font-family: "Red Hat Display";
   @apply
   text-default bg-deepgreen h-full;
 }
