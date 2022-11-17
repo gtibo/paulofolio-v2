@@ -15,12 +15,12 @@ export function load({}) {
 
   data.projects_list = fileList(project_source_dir).map(slug => {
     let project_data_file_path = path.resolve(project_source_dir, slug, "content.md");
-    let project_data = readMD(project_data_file_path, ["title", "type", "vignette"]);
+    let project_data = readMD(project_data_file_path, ["title", "type", "vignette", "date"]);
     project_data.slug = slug;
     let vignette_data = parseJSON(path.resolve(metas_source_dir, "projects_" + project_data.slug + "_" + project_data.vignette + ".json"))
     project_data.vignette = vignette_data;
     return project_data;
   });
-
+  data.projects_list = data.projects_list.sort((a, b) => new Date(b.date) - new Date(a.date));
   return data;
 }
