@@ -1,5 +1,6 @@
 ---
 title: Astray
+date: 2022-6
 type: Video Game
 vignette: thumbnail.jpg
 banner: medias/images/header.jpg

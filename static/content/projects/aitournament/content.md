@@ -1,5 +1,6 @@
 ---
 title: AI Tournament
+date: 2021-4
 type: Video game
 vignette: thumbnail.jpg
 banner: medias/images/header.jpg

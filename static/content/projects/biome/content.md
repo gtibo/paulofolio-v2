@@ -1,5 +1,6 @@
 ---
 title: Biome
+date: 2021-10
 type: Interactive experience
 vignette: thumbnail.jpg
 banner: medias/images/header.jpg

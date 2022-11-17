@@ -1,5 +1,6 @@
 ---
 title: Amani, my friend
+date: 2021-5
 type: Serious game
 vignette: thumbnail.jpg
 banner: medias/images/header.jpg
