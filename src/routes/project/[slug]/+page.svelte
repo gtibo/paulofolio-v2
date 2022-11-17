@@ -1,16 +1,41 @@
 <script>
+    import { afterNavigate } from '$app/navigation';
     import ImageContainer from "$lib/image_container.svelte";
     import VideoPlayer from "$lib/video_player.svelte";
     export let data;
+    
+    let can_go_back = false;
+
+    afterNavigate(({from})=>{
+        can_go_back = from?.url.pathname == "/";
+    });
+
+    function goback(e){
+        if(can_go_back){
+            e.preventDefault();
+            history.back();
+        }
+    }
+
 </script>
+
+<a href="/" on:click={goback} class="z-10 fixed xl:top-16 xl:left-16 top-8 left-8 flex gap-2">
+    <svg class="w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M2 2L12 12M12 12L2 22M12 12L22 2M12 12L22 22" stroke="white" stroke-width="3"/>
+    </svg>
+    <span class="text-default font-semibold">
+        Close
+    </span>
+</a>
+
 <header
 class="
-relative -z-10 -mb-[14vmax] h-[24vmax]
+relative -z-10 -mb-[14vmax] h-[30vmax]
 ">
-<ImageContainer cover={true} meta_data={data.banner}/>
-<div class="absolute inset-0
-bg-gradient-to-b from-deepgreen/0 to-deepgreen"> 
-</div>
+    <ImageContainer cover={true} meta_data={data.banner}/>
+    <div class="absolute inset-0
+    bg-gradient-to-b from-deepgreen/0 to-deepgreen"> 
+    </div>
 </header>
 
 <main 
