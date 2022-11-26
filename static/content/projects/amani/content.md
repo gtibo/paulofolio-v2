@@ -22,6 +22,7 @@ My role in the group, apart from writing the story and dialogue which everyone d
 ---
 
 !medias/videos/amani_trailer.mp4
+  vignette: medias/images/vignette_amani_01.jpg
   legend: Trailer of the game.
 
 ## Concept build-up

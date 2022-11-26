@@ -21,6 +21,7 @@ overview: "This arcade game is the outcome of a workshop around p5.js and its li
 ---
 
 !medias/videos/flapyourwings_trailer.mp4
+  vignette: medias/images/vignette_flapyourwings_01.jpg
   legend: Trailer of the game.
 
 ## Concept build-up

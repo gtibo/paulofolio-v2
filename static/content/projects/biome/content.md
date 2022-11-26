@@ -21,6 +21,7 @@ overview: "This group project is the result of a week-long workshop around Ardui
 ---
 
 !medias/videos/biome_trailer.mp4
+  vignette: medias/images/vignette_biome_01.jpg
   legend: Trailer of the interactive experience.
 
 ## Concept build-up

@@ -22,7 +22,7 @@ You play as Vilmaya Lova, one of many carriers working for one of these large co
 ---
 
 !medias/videos/astray_trailer.mp4
-  vignette: medias/images/astray_02.jpg
+  vignette: medias/images/vignette_astray_01.jpg
   legend: Trailer of the game
 
 ## Concept build-up
@@ -87,6 +87,7 @@ The character controls are simple, Vilmaya Lova can only walk and use her flashl
 The initial scope of the game and the gameplay mechanics were modified several times to respect the planning and time limit. At first, it integrated space travel between multiple destinations in a planetary system. This had to be toned down to one destination for the final demo but the travel system was still developed to accommodate as many as possible. It is accessible through an holographic map in the player’s spaceship. The maps are split into different sectors containing different locations.
 
 !medias/videos/astray_10.mp4
+  vignette: medias/images/vignette_astray_02.jpg
   legend : In-game video capture of the player using the travel system.
 
 !medias/images/astray_11.svg
@@ -96,6 +97,7 @@ The initial scope of the game and the gameplay mechanics were modified several t
 Another part removed from the demo was the exploration of an abandoned ship where the player would encounter two swarms of boid-like NPCs. Those would serve as puzzle elements to the game and also fit with the sci-fi/supernatural narrative. The first one acts neutral to the player, emits small electrical bursts and is attracted by his flashlight. It was designed as a small puzzle interaction where the player would need to lead them into a busted door panel in order to create a short-circuit and open it.
 
 !medias/videos/astray_12.mp4
+  vignette: medias/images/vignette_astray_03.jpg
   legend : In-game video capture of the boid following the player’s flashlight.
 
 !medias/images/astray_13.svg
@@ -105,6 +107,7 @@ Another part removed from the demo was the exploration of an abandoned ship wher
 The second one is hostile to the player and will chase it whenever it is looked at. If it gets too close, the player will faint and wake up after a small cutscene. It doesn’t specifically reward the player to avoid it but it adds more tension and danger to the scene with a stealth mechanic. The inspiration for this idea was taken from the episode Flesh and Stone of the Doctor Who television series.
 
 !medias/videos/astray_14.mp4
+  vignette: medias/images/vignette_astray_04.jpg
   legend : In-game video capture of the boid rushing towards the player.
 
 !medias/images/astray_15.jpg

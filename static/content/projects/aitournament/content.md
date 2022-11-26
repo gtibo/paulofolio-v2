@@ -21,6 +21,7 @@ overview: "A short and fun experimentation about machine learning in Unity using
 ---
 
 !medias/videos/aitournament_trailer.mp4
+  vignette: medias/images/vignette_aitournament_01.jpg
   legend: Trailer of the game.
 
 ## Concept build-up
@@ -43,6 +44,7 @@ After setting up the character bones, I had to set some rules for the neural net
 You can follow those statistics through TensorBoard and detect if the training doesn’t improve over time.
 
 !medias/videos/aitournament_03.mp4
+  vignette: medias/images/vignette_aitournament_02.jpg
   legend : Knights training to walk towards a target.
 
 !medias/images/aitournament_04.jpg

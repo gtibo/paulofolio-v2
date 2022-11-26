@@ -21,6 +21,7 @@ overview: "Uru Dagal is a VR game prototype I made with Unity and Blender for th
 ---
 
 !medias/videos/urudagal_trailer.mp4
+  vignette: medias/images/vignette_urudagal_01.jpg
   legend: Trailer of the game.
 
 ## Concept build-up
@@ -41,6 +42,7 @@ I wanted to create a similar experience where you play as the character wanderin
 Just before the beginning of this project, I came across the technical demo of a developer showcasing a procedurally generated city using a Wave Function Collapse algorithm. I was really impressed by the potential of the tool and how it could fit in my project, giving the eerie sense of being trapped in a constantly growing city.
 
 !medias/videos/urudagal_03.mp4
+  vignette: medias/images/vignette_urudagal_01.jpg
   legend : Infinite procedurally generated city in Unity by marian519
 
 I gave myself 3 weeks to understand the theory and integrate this tool to my game. It was sort of a personal challenge, I wanted to learn more about algorithmic and C# language. I also thought that it could be really interesting to take this approach on level design. In the end, while I was able to integrate some aspects of the algorithm, it would have taken too long to adapt. I gave up on the idea and started to design by hand a small map for the game. It was still a great inspiration and this idea still lives in my head today for another project.
