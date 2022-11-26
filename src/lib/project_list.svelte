@@ -16,7 +16,7 @@
 <style>
 
 #project-grid{
-  @apply grid sm:grid-cols-2 gap-8 sm:gap-16 mt-16 md:pb-32;
+  @apply grid sm:grid-cols-2 gap-8 sm:gap-16 sm:pb-32;
 }
 
 #project-grid > .item:nth-child(even){
