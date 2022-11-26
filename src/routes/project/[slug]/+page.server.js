@@ -38,9 +38,15 @@ function parse_content(source, project_slug){
         }
 
         if(block.startsWith(" ")){
-            let [attribute, ...rest] = block.split(':')
-            let value = rest.join(':')
-            parsed_content[parsed_content.length - 1][attribute.trim()] = value.trim();
+            let [attribute, ...rest] = block.split(':');
+            let value = rest.join(':').trim();
+
+            if(attribute.trim() == "vignette"){
+                let meta_file_name = "projects_" + project_slug + "_" + value.replaceAll("/", "_") + ".json";
+                value = parseJSON(path.resolve(metas_source_dir, meta_file_name));
+            }
+
+            parsed_content[parsed_content.length - 1][attribute.trim()] = value;
             continue;
         }
 

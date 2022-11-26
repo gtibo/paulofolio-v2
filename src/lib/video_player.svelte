@@ -1,6 +1,8 @@
 <script>
 import { onMount } from 'svelte';
-export let meta_data = {};
+import ImageContainer from './image_container.svelte';
+
+export let meta_data = {}, vignette = undefined;
 
 let video = undefined;
 let path = "/" + meta_data.base_path;
@@ -9,6 +11,7 @@ let duration = meta_data.duration, time = 0;
 let ready = false;
 let waiting = false;
 let show_controls = false;
+let has_played_once = false;
 
 let controls_timeout;
 
@@ -34,6 +37,7 @@ function toggle(){
   playing = !playing;
   if(playing){
     video.play();
+    has_played_once = true;
   }else{
     video.pause();
   }
@@ -50,9 +54,8 @@ function seekTrack(e){
   if(!ready) return;
   let seek_time = duration * (e.layerX / e.target.clientWidth);
   time = seek_time;
+  video.currentTime = time;
 }
-
-$: loading = ready || waiting;
 
 $: time_percent = time / duration;
 
@@ -61,23 +64,31 @@ $: time_percent = time / duration;
 <div
 on:pointermove={pointerMove}
 class="relative overflow-hidden">
+  
+  <!-- Vignette -->
+  {#if vignette && !has_played_once}
+    <div class:opacity-0={playing} 
+    class="absolute z-10 inset-0 pointer-events-none transition-opacity">
+      <ImageContainer meta_data={vignette} cover=true/>
+    </div>
+  {/if}
   <video
     class:appear={ready}
     bind:this={video}
     bind:currentTime={time}
     on:click={toggle}
-    style="aspect-ratio: {960/540};"
-    width="960" height="540">
+    style="aspect-ratio: {meta_data.base_ratio};">
   </video>
 
-  <div class:opacity-0={playing && !waiting} class="pointer-events-none absolute bg-black/50 inset-0 transition-opacity">
+  <div class:opacity-0={playing && !waiting} 
+  class="z-20 pointer-events-none absolute bg-black/50 inset-0 transition-opacity">
 
   </div>
 
 
   <div
   class:opacity-0={!show_controls && playing}
-  class="pointer-events-none absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-opacity">
+  class="z-20 pointer-events-none absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-opacity">
     <svg
       class="w-8 h-8"
       xmlns="http://www.w3.org/2000/svg"
@@ -106,6 +117,7 @@ class="relative overflow-hidden">
     </div>
   </div>
 </div>
+
 <style>
 
 video{

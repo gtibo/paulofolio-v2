@@ -8,6 +8,7 @@ export function load({}) {
   // Get website home page data from info.md
   const data = readMD(path.resolve(content_source_dir, "info.md"));
   // Get website demo reel video
+  data.demo_reel_vignette = parseJSON(path.resolve(metas_source_dir, "vignette_demo_reel.jpg.json"));
   data.demo_reel = parseJSON(path.resolve(metas_source_dir, "demo_reel.mp4.json"));
   // Get website home page projects info
   // List of projects with title, types, vignettes and slug

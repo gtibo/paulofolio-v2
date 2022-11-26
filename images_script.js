@@ -12,6 +12,7 @@ projects_list.map(project_name => {
   var media_directory_path = path.join(project_path, "medias");
   
   set_media_meta(path.resolve("./static/content/demo_reel.mp4"));
+  set_media_meta(path.resolve("./static/content/vignette_demo_reel.jpg"));
 
   set_media_meta(path.resolve(project_path, thumbnail_file_name), {
       crop_ratio : 0.8 / 1.0,

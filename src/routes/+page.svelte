@@ -26,7 +26,7 @@
 </header>
 
 <main class="max-w-screen-xl mx-auto p-6 md:p-16">
- 	<VidePlayer meta_data={data.demo_reel} />
+ 	<VidePlayer meta_data={data.demo_reel} vignette={data.demo_reel_vignette} />
 	<ProjectList projects={data.projects_list}/>
 	<footer class="border-t border-default/50 py-8 mt-16 md:mt-24">
 		<p class="text-default/50 text-center text-xs md:text-base font-semibold">Designed and developed by <a href="https://gotibo.fr/">Tibo</a> with sveltekit.</p>

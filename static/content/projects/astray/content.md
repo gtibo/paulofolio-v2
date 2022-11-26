@@ -22,6 +22,7 @@ You play as Vilmaya Lova, one of many carriers working for one of these large co
 ---
 
 !medias/videos/astray_trailer.mp4
+  vignette: medias/images/astray_02.jpg
   legend: Trailer of the game
 
 ## Concept build-up

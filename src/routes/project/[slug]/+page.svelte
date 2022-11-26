@@ -69,7 +69,7 @@ max-w-screen-xl mx-auto">
         <ImageContainer meta_data={block} />
             {/if}
             {#if block.type == "video"}
-                <VideoPlayer meta_data={block} />
+                <VideoPlayer meta_data={block} vignette={ block.vignette || undefined}/>
             {/if}
             {#if block.legend }
             <div class="p-2 opacity-60">{block.legend}</div>
