@@ -43,8 +43,8 @@ class="
 px-8 py-12
 max-w-screen-xl mx-auto">
     <div class="mb-6">
-        <h1 class="text-6xl font-semibold mb-2">{data.title}</h1>
-        <h2 class="text-2xl uppercase opacity-60">{data.type}</h2>
+        <h1 class="text-4xl md:text-6xl font-semibold mb-2">{data.title}</h1>
+        <h2 class="text-xl md:text-2xl uppercase opacity-60">{data.type}</h2>
     </div>
     <div class="flex md:flex-row flex-col gap-12 sm:items-start mb-16">
         <div class="flex-1">
