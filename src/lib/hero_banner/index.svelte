@@ -1,5 +1,5 @@
 <script>
-import { PerspectiveCamera, Clock, AnimationMixer, Fog, Scene, BoxGeometry, MeshBasicMaterial, Mesh, WebGLRenderer} from 'three';
+import { PerspectiveCamera, Vector3, Clock, AnimationMixer, Fog, Scene, BoxGeometry, MeshBasicMaterial, Mesh, WebGLRenderer} from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { onMount } from 'svelte';
 
@@ -15,6 +15,11 @@ const clock = new Clock();
 const loader = new GLTFLoader();
 
 let meshes = [];
+
+let root;
+let center = new Vector3(0, 0.5, 0);
+let camera_origin = new Vector3(0, 1.0, 6.5);
+
 
 onMount(()=>{
   scene = new Scene();
@@ -36,16 +41,18 @@ onMount(()=>{
       './scene.glb',
       ( gltf ) => {
           ready = true;
-          camera = gltf.cameras[0];
+          camera = new PerspectiveCamera(55, 1.0, 0.1, 1000);
 
           gltf.scene.traverse( function( child ) {
-            if(child.type == "Mesh"){
+            if(child.name == "base") root = child;
+            if(child.type == "Mesh" || child.type == "SkinnedMesh"){
               meshes.push(child);
             }
           });
 
           scene.add( gltf.scene );
 
+          
           meshes.forEach(mesh=>{
             mesh.material = basic_material;
             let clone = mesh.clone(false);
@@ -61,8 +68,10 @@ onMount(()=>{
           });
 
           resize();
+          set_camera(0,0);
           container.appendChild(renderer.domElement);
           animate();
+          root.position.y = -0.5;
       },
       ( xhr ) => {
           // xhr.loaded / xhr.total * 100
@@ -87,6 +96,7 @@ function resize(){
   camera.updateProjectionMatrix();
 
   renderer.setSize( width, height);
+  set_camera(0,0);
 }
 
 
@@ -97,10 +107,28 @@ function animate( time ) {
   requestAnimationFrame( animate );
 }
 
+function pointermove(e){
+  set_camera(
+      ((e.clientX / window.innerWidth) - .5) ,
+      ((e.clientY / window.innerHeight) - .5)
+    );
+}
+
+function set_camera(x,y){
+  let offset_x = (container.clientWidth <= 768) ? 0 : 2.0;
+
+  root.position.x = offset_x;
+  root.rotation.x = y * 0.2;
+  root.rotation.y = x * 0.2;
+  camera.position.x = camera_origin.x;
+  camera.position.y = camera_origin.y;
+  camera.position.z = camera_origin.z;
+  camera.lookAt(center);
+}
 
 </script>
 
-<svelte:window on:resize={resize}/>
+<svelte:window on:resize={resize} on:pointermove={pointermove}/>
 
 <div class:pika={!ready} class="boo" id="container" bind:this={container} >
 
