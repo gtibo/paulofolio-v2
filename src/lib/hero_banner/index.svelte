@@ -16,7 +16,7 @@ const loader = new GLTFLoader();
 
 let meshes = [];
 
-let root;
+let root = undefined;
 let center = new Vector3(0, 0.5, 0);
 let camera_origin = new Vector3(0, 1.0, 6.5);
 
@@ -108,6 +108,7 @@ function animate( time ) {
 }
 
 function pointermove(e){
+  if(root == undefined) return;
   set_camera(
       ((e.clientX / window.innerWidth) - .5) ,
       ((e.clientY / window.innerHeight) - .5)
