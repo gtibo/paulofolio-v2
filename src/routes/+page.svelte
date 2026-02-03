@@ -3,7 +3,7 @@
 	import VidePlayer from '$lib/video_player.svelte';
 	import ProjectList from '$lib/project_list.svelte';
 
-	export let data;
+	let { data } = $props();
 
 </script>
 

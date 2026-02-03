@@ -1,6 +1,6 @@
 <script>
   import ProjectVignette from '$lib/project_vignette.svelte';
-  export let projects = [];
+  let { projects = [] } = $props();
 </script>
 
 <div id="project-grid">
@@ -14,6 +14,7 @@
 </div>
 
 <style>
+@reference "tailwindcss";
 
 #project-grid{
   @apply grid sm:grid-cols-2 gap-8 sm:gap-16 sm:pb-32;

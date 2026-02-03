@@ -18,7 +18,7 @@ export function load({ params }) {
 
         return project_data;
     } catch (e) {   
-        throw error(404, 'Not found');
+        error(404, 'Not found');
     }
 }
 

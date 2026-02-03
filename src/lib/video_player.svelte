@@ -2,16 +2,16 @@
 import { onMount } from 'svelte';
 import ImageContainer from './image_container.svelte';
 
-export let meta_data = {}, vignette = undefined;
+  let { meta_data = {}, vignette = undefined } = $props();
 
-let video = undefined;
+let video = $state(undefined);
 let path = "/" + meta_data.base_path;
-let playing = false;
-let duration = meta_data.duration, time = 0;
-let ready = false;
-let waiting = false;
-let show_controls = false;
-let has_played_once = false;
+let playing = $state(false);
+let duration = meta_data.duration, time = $state(0);
+let ready = $state(false);
+let waiting = $state(false);
+let show_controls = $state(false);
+let has_played_once = $state(false);
 
 let controls_timeout;
 
@@ -57,12 +57,12 @@ function seekTrack(e){
   video.currentTime = time;
 }
 
-$: time_percent = time / duration;
+let time_percent = $derived(time / duration);
 
 </script>
 
 <div
-on:pointermove={pointerMove}
+onpointermove={pointerMove}
 class="relative overflow-hidden">
   
   <!-- Vignette -->
@@ -76,7 +76,7 @@ class="relative overflow-hidden">
     class:appear={ready}
     bind:this={video}
     bind:currentTime={time}
-    on:click={toggle}
+    onclick={toggle}
     style="aspect-ratio: {meta_data.base_ratio};">
   </video>
 
@@ -110,7 +110,7 @@ class="relative overflow-hidden">
     </div>
   {/if}
 
-  <div on:click={seekTrack}
+  <div onclick={seekTrack}
   class:translate-y-3={!show_controls && playing}
   class="absolute bottom-0 w-full bg-black/90 h-4 transition-all">
     <div style="width:{time_percent * 100.0}%" class="pointer-events-none	bg-accent h-full transition-all">
@@ -119,7 +119,7 @@ class="relative overflow-hidden">
 </div>
 
 <style>
-
+@reference "tailwindcss";
 video{
   display: inline-block;
   width: 100%;

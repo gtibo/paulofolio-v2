@@ -1,10 +1,7 @@
 <script>
-    // import { fade } from 'svelte/transition';
-	// import { page } from '$app/stores';
-	// import { onMount } from 'svelte';
-	
-	import '../app.postcss';
-	export const prerender = true;
+	import '$lib/app.css';
+
+	let { children } = $props();
 
 </script>
 
@@ -13,4 +10,5 @@
 	<meta name="description" content="Paul Bellon-Serre's portfolio">
 </svelte:head>
 
-<slot />
+
+{@render children?.()}

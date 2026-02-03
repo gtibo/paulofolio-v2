@@ -3,12 +3,12 @@ import { PerspectiveCamera, Vector3, Clock, AnimationMixer, Fog, Scene, BoxGeome
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { onMount } from 'svelte';
 
-let container = undefined;
+let container = $state(undefined);
 let camera, scene, renderer;
 
 let mixer;
 
-let ready = false;
+let ready = $state(false);
 
 const clock = new Clock();
 
@@ -129,14 +129,14 @@ function set_camera(x,y){
 
 </script>
 
-<svelte:window on:resize={resize} on:pointermove={pointermove}/>
+<svelte:window onresize={resize} onpointermove={pointermove}/>
 
 <div class:pika={!ready} class="boo" id="container" bind:this={container} >
 
 </div>
 
 <style>
-
+@reference "tailwindcss";
 .pika{
   @apply opacity-0;
 }

@@ -1,9 +1,20 @@
 <script>
   import ImageContainer from "$lib/image_container.svelte";
-  export let title = "Untitled",
-  type = "no type",
-  vignette = "/",
-  slug = "/";
+  /**
+   * @typedef {Object} Props
+   * @property {string} [title]
+   * @property {string} [type]
+   * @property {string} [vignette]
+   * @property {string} [slug]
+   */
+
+  /** @type {Props} */
+  let {
+    title = "Untitled",
+    type = "no type",
+    vignette = "/",
+    slug = "/"
+  } = $props();
 </script>
 
 <a href="/project/{slug}" class="group">

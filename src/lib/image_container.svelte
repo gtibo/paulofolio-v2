@@ -1,9 +1,16 @@
 <script>
   import { onMount } from "svelte";
-  export let meta_data = [], cover = false;
-  let loaded = false;
-  let srcset = "";
-  let sizes = "";
+  /**
+   * @typedef {Object} Props
+   * @property {any} [meta_data]
+   * @property {boolean} [cover]
+   */
+
+  /** @type {Props} */
+  let { meta_data = [], cover = false } = $props();
+  let loaded = $state(false);
+  let srcset = $state("");
+  let sizes = $state("");
   let ratio = meta_data?.formats?.ratio || meta_data.base_ratio;
   let default_src = (meta_data.formats) ? `/${meta_data.formats.sizes[0].path}` : `/${meta_data.base_path}`;
   let alt = meta_data.alt || "no alternative text available";
@@ -12,7 +19,7 @@
     sizes = meta_data.formats.sizes.map(size => `(max-width: ${size.width}px) ${size.width}px`).join(", ");
   }
 
-  let img_element;
+  let img_element = $state();
 
   onMount(()=>{
     img_element.src = default_src;
@@ -44,13 +51,14 @@
     {sizes}
     src={default_src}
     {alt} 
-    on:load={()=>{loaded = true;}}
+    onload={()=>{loaded = true;}}
     loading="lazy"
     />
 </picture>
 
 
 <style>
+  @reference "tailwindcss";
   .default-hidden{
     opacity: 0;
   }

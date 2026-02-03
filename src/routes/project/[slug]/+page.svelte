@@ -2,7 +2,7 @@
     import { afterNavigate } from '$app/navigation';
     import ImageContainer from "$lib/image_container.svelte";
     import VideoPlayer from "$lib/video_player.svelte";
-    export let data;
+    let { data } = $props();
     
     let can_go_back = false;
 
@@ -19,7 +19,7 @@
 
 </script>
 
-<a href="/" on:click={goback} class="z-10 fixed xl:top-16 xl:left-16 top-8 left-8 flex gap-2">
+<a href="/" onclick={goback} class="z-10 fixed xl:top-16 xl:left-16 top-8 left-8 flex gap-2">
     <svg class="w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
         <path d="M2 2L12 12M12 12L2 22M12 12L22 2M12 12L22 22" stroke="white" stroke-width="3"/>
     </svg>
@@ -71,7 +71,7 @@ max-w-screen-xl mx-auto">
             {#if block.type == "video"}
                 <VideoPlayer meta_data={block} vignette={ block.vignette || undefined}/>
             {/if}
-            {#if block.legend }
+            {#if block.legend}
             <div class="p-2 opacity-60">{block.legend}</div>
             {/if}
             {#if block.type == "html"}
@@ -84,7 +84,7 @@ max-w-screen-xl mx-auto">
     </main>
 
 <style>
-
+@reference "tailwindcss";
 .content-blocks :global(h2){
     font-size: 1.6em;
     margin-top: 0.8em;
